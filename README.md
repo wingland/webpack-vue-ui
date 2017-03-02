@@ -17,3 +17,11 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## Instructions
+This is built based on [vue-loader](http://vuejs.github.io/vue-loader).
+
+Currently added bootstrap UI v4 only through (bootstrap-loader)(https://github.com/shakacode/bootstrap-loader)
+
+
