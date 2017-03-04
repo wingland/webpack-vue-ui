@@ -35,6 +35,10 @@ module.exports = {
                     name: '[name].[ext]?[hash]'
                 }
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
             // Bootstrap 4
             {
                 test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/,
@@ -52,9 +56,11 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
+            //jQuery
             $: "jquery",
             jQuery: "jquery",
             "window.jQuery": "jquery",
+            //Bootstrap 4
             Tether: "tether",
             "window.Tether": "tether",
             Alert: "exports-loader?Alert!bootstrap/js/dist/alert",

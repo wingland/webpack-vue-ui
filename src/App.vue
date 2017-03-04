@@ -66,7 +66,15 @@
           <h4 class="modal-title" id="myModalLabel">Modal title</h4>
         </div>
         <div class="modal-body">
-          ...
+          <div class="form-group">
+                  <label for="datetimepicker1">开始时间</label> 
+                  <Flatpickr :options="fpOptions" class="form-control" v-model='startTime' placeholder="Click to pick date and time"/>
+                </div>
+                <div class="form-group">
+                    <label for="datetimepicker2">结束时间</label>
+                   
+                  <Flatpickr :options="fpOptions" class="form-control" v-model='endTime' placeholder="Click to pick date and time"/>
+                </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -85,46 +93,62 @@
   </div>
 </div>
 
+                  <Flatpickr :options="fpOptions" class="form-control" placeholder="Click to pick date and time"/>
+
+
   </div>
   
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    import moment from 'moment/moment.js'
+    export default {
+        name: 'app',
+        data() {
+            return {
+                msg: 'Welcome to Your Vue.js App',
+                fpOptions: {
+                    dateFormat: 'Y-m-d H:i',
+                    enableTime: true,
+                    static: true,
+                    appendTo: document.getElementById("myModal")
+                },
+                startTime: moment().subtract(30, 'minutes').format('YYYY-MM-DD hh:mm'),
+                endTime: moment().format('YYYY-MM-DD hh:mm')
+            }
+        }
     }
-  }
-}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+    
+    .full-width.form-control {
+        width: 100%;
+    }
+    
+    h1,
+    h2 {
+        font-weight: normal;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    
+    a {
+        color: #42b983;
+    }
 </style>
